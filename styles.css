@@ -46,7 +46,7 @@ body {
 }
 .btn {
   display: inline-block;
-  background: #ff4747;
+  background: #5353ec;
   color: #fff;
   padding: 12px 30px;
   border-radius: 8px;
@@ -55,7 +55,7 @@ body {
   transition: 0.3s;
 }
 .btn:hover {
-  background: #e63e3e;
+  background: #5353ec;
 }
 
 /* ===== INFO SECTION ===== */
@@ -86,7 +86,7 @@ body {
 }
 .card i {
   font-size: 2rem;
-  color: #ff4747;
+  color: #5353ec;
   margin-bottom: 12px;
 }
 
@@ -127,7 +127,7 @@ body {
 }
 .project-info a {
   text-decoration: none;
-  color: #ff4747;
+  color: #5353ec;
   font-weight: bold;
 }
 
@@ -142,7 +142,7 @@ body {
   margin-top: 10px;
 }
 .footer .socials a {
-  color: #ff4747;
+  color: #5353ec;
   margin: 0 10px;
   font-size: 1.5rem;
   transition: 0.3s;
