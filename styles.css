@@ -165,62 +165,48 @@ body {
   background: #000; /* por si tarda en cargar */
 }
 
-/* ===== PROYECTOS MEJORADOS ===== */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
+/* Grid: tarjetas de ancho fijo y centradas */
+.projects-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 320px)); /* ≈ mismo tamaño siempre */
+  gap: 20px;
+  justify-content: center;   /* centra cuando hay 1 o 2 */
   max-width: 1100px;
   margin: auto;
 }
 
-.project {
-  background: #fff;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.project:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+/* Tarjeta compacta */
+.project{
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 5px 18px rgba(0,0,0,.1);
 }
 
-.video-wrapper {
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background: #000;
-}
-.video-wrapper video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+/* Marco del video: tamaño controlado */
+.video-wrapper{
+  aspect-ratio:16/9;   /* altura estable */
+  background:#000;
 }
 
-/* Información debajo del video */
-.project-info {
-  padding: 18px 16px 22px;
-  text-align: center;
-  background: #fff;
+/* Video: que se vea COMPLETO (sin recortes) */
+.video-wrapper video{
+  width:100%;
+  height:100%;
+  object-fit: contain;  /* muestra todo el video con barras si hace falta */
+  display:block;
+  background:#000;
 }
-.project-info h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #111;
+
+/* Info compacta */
+.project-info{
+  padding:14px 12px 18px;
+  text-align:center;
 }
-.project-info a {
-  display: inline-block;
-  color: #5353ec;
-  font-weight: 600;
-  text-decoration: none;
-  border: 1px solid #5353ec;
-  border-radius: 6px;
-  padding: 6px 14px;
-  transition: 0.25s;
-}
-.project-info a:hover {
-  background: #5353ec;
-  color: #fff;
+.project-info h3{ font-size:1rem; margin-bottom:6px; }
+.project-info a{
+  display:inline-block;
+  color:#5353ec;
+  font-weight:600;
+  text-decoration:none;
 }
