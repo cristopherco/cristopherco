@@ -113,7 +113,8 @@ body {
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
   background: #fafafa;
 }
-.project img {
+/* antes: .project img { ... }  */
+.project .video-wrapper img { 
   width: 100%;
   height: 200px;
   object-fit: cover;
