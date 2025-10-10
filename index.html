@@ -52,18 +52,31 @@
   </section>
 
   <!-- =================== SECCIÓN PROYECTOS =================== -->
-  <section class="proyectos" id="proyectos">
-    <h2>Algunos de mis trabajos</h2>
-    <div class="projects-grid">
-      <div class="project">
-        <img src="img/altar.png" alt="Altar de Adoración">
-        <div class="project-info">
-          <h3>Altar de Adoración</h3>
-          <a href="https://altardeadoracion.sbs/" target="_blank">Ver sitio</a>
-        </div>
+<section class="proyectos" id="proyectos">
+  <h2>Algunos de mis trabajos</h2>
+  <div class="projects-grid">
+
+    <!-- Proyecto con video -->
+    <div class="project">
+      <video class="preview"
+             playsinline
+             muted
+             loop
+             preload="metadata"
+             poster="img/altarposter.jpg">
+        <source data-src="videos/altar.mp4" type="video/mp4" />
+      </video>
+      <div class="project-info">
+        <h3>Altar de Adoración</h3>
+        <a href="https://altardeadoracion.sbs/" target="_blank">Ver sitio</a>
       </div>
     </div>
-  </section>
+
+    <!-- Duplica el bloque .project para más trabajos cambiando poster y data-src -->
+    <!-- ... -->
+
+  </div>
+</section>
 
   <!-- =================== FOOTER =================== -->
   <footer class="footer">
@@ -74,6 +87,51 @@
       <a href="#"><i class="fa-brands fa-github"></i></a>
     </div>
   </footer>
+
+<script>
+(function () {
+  const videos = Array.from(document.querySelectorAll('.project video'));
+
+  // Carga diferida: pasa data-src -> src cuando entra en vista
+  const ensureSrc = (video) => {
+    const source = video.querySelector('source');
+    if (source && source.dataset.src && !source.dataset.loaded) {
+      source.src = source.dataset.src;
+      source.dataset.loaded = "true";
+      video.load(); // prepara el buffer con metadata
+    }
+  };
+
+  // Observador para reproducir/pausar según visibilidad
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(async (entry) => {
+      const video = entry.target;
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+        ensureSrc(video);
+        try {
+          await video.play(); // autoplay permitido porque está muted + playsinline
+        } catch (e) {
+          // Si el navegador bloquea, lo ignoramos
+        }
+      } else {
+        // Pausa al salir y regresa al inicio
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  }, { threshold: [0, 0.6, 1] });
+
+  videos.forEach(v => io.observe(v));
+
+  // Pausar todo si la pestaña pierde foco (ahorra batería/datos)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      videos.forEach(v => { v.pause(); v.currentTime = 0; });
+    }
+  }, false);
+})();
+</script>
+
 
 </body>
 </html>
