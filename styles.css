@@ -283,3 +283,50 @@ body {
   }
 }
 
+/* ===== Costos (texto) ===== */
+.costos-nota{
+  padding: clamp(28px, 6vw, 64px) var(--gap,16px);
+  background: #0f1115; color:#e8eef6;
+}
+.costos-nota h2{ text-align:center; font-size:clamp(24px,4vw,36px); margin-bottom:12px; }
+.costos-nota .lead{
+  max-width: 980px; margin: 0 auto 10px; line-height:1.65; opacity:.95;
+}
+.costos-nota .price-line{
+  text-align:center; font-size: clamp(18px, 2.6vw, 22px); margin: 14px 0 6px;
+}
+.costos-nota .mxn{ color:#fff; font-weight:800; }
+.costos-nota .usd{ display:inline-block; margin-left:8px; opacity:.8; font-size:.95em; }
+
+/* Línea decorativa del dominio */
+.domain-line{
+  margin: 14px auto 0;
+  max-width: 980px;
+  display:flex; gap:10px; align-items:center; justify-content:center;
+  flex-wrap: wrap;
+}
+.domain-left{ opacity:.9; }
+.domain-demo{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  background: #101827; border:1px solid rgba(255,255,255,.1);
+  padding: 8px 12px; border-radius: 10px; letter-spacing:.2px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+.domain-demo .dname{ font-weight:700; }
+.domain-demo .dtld{ color:#60a5fa; font-weight:800; margin-left:2px; }
+.domain-badge{
+  background:#22c55e; color:#092312; padding:6px 10px; border-radius:999px;
+  font-weight:800; font-size:.9rem; white-space:nowrap;
+}
+
+@media (max-width:680px){
+  .domain-line{ justify-content: center; }
+}
+
+/* ===== Tiempos (texto simple) ===== */
+.tiempos-simple{
+  padding: clamp(24px, 6vw, 56px) var(--gap,16px);
+  background:#0b0d13; color:#f1f5f9; text-align:center;
+}
+.tiempos-simple h2{ font-size:clamp(24px,4vw,36px); margin-bottom:8px; }
+.tiempos-simple p{ max-width:900px; margin: 0 auto; line-height:1.6; opacity:.95; }
