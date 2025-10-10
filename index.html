@@ -62,28 +62,6 @@
   <h2>Algunos de mis trabajos</h2>
   <div class="projects-grid">
 
-    <!-- Proyecto con video -->
-<div class="project">
-  <div class="video-wrapper">
-    <video class="preview" playsinline muted loop preload="metadata" poster="img/altar-poster.jpg">
-      <source data-src="videos/altar.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="project-info">
-  <h3>
-    <img src="img/adalogo.png" alt="Logo Altar de Adoración" class="project-logo">
-    Altar de Adoración
-  </h3>
-  <a href="https://altardeadoracion.sbs/" target="_blank">Ver sitio</a>
- </div>
-</div>
-
-    <!-- Duplica el bloque .project para más trabajos cambiando poster y data-src -->
-    <!-- ... -->
-
-  </div>
-</section>
-
 <!-- =================== COSTOS – TEXTO =================== -->
 <section class="costos-nota" id="costos">
   <h2>Costos</h2>
@@ -115,6 +93,28 @@
   </p>
 </section>
 
+
+    <!-- Proyecto con video -->
+<div class="project">
+  <div class="video-wrapper">
+    <video class="preview" playsinline muted loop preload="metadata" poster="img/altar-poster.jpg">
+      <source data-src="videos/altar.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="project-info">
+  <h3>
+    <img src="img/adalogo.png" alt="Logo Altar de Adoración" class="project-logo">
+    Altar de Adoración
+  </h3>
+  <a href="https://altardeadoracion.sbs/" target="_blank">Ver sitio</a>
+ </div>
+</div>
+
+    <!-- Duplica el bloque .project para más trabajos cambiando poster y data-src -->
+    <!-- ... -->
+
+  </div>
+</section>
 
   <!-- =================== FOOTER =================== -->
   <footer class="footer">
@@ -208,6 +208,22 @@
   makeRotator('.rotator2', words2, 1500);
 })();
 </script>
+
+<script>
+/* Rotación decorativa de TLD para el dominio demo */
+(function(){
+  const tlds = ['.com', '.com.mx', '.net', '.edu', '.site', '.shop'];
+  const el = document.querySelector('.domain-demo .dtld');
+  if(!el) return;
+
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % tlds.length;
+    el.textContent = tlds[i];
+  }, 1200);
+})();
+</script>
+
 
 </body>
 </html>
