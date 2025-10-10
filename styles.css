@@ -210,3 +210,19 @@ body {
   font-weight:600;
   text-decoration:none;
 }
+
+.project-info h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* espacio entre logo y texto */
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.project-logo {
+  height: 22px;     /* ajusta tamaño del logo Me faltó*/
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+}
