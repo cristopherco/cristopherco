@@ -15,8 +15,17 @@
   <header class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
-      <h1>Cristopher Dev</h1>
-      <p>Diseñador y desarrollador web — construyendo experiencias únicas en la web.</p>
+      <h1>Cristopher CO</h1>
+<p class="hero-line">
+  Diseño y desarrollo WEB — Haz que tu
+  <span class="rotator"><span class="word">proyecto</span></span>
+  se impulse , ¡Hagamoslo juntos!.
+</p>
+
+<p class="hero-sub">
+  Muéstrale y expone al mundo 
+  <span class="rotator2"><span class="word">tus ideas</span></span>
+</p>
       <a href="#proyectos" class="btn">Ver mis proyectos</a>
     </div>
   </header>
@@ -132,6 +141,45 @@
 })();
 </script>
 
+<script>
+/* === Rotadores de texto para el HERO === */
+(function(){
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Listas de palabras
+  const words1 = ['proyecto', 'negocio', 'fan page', 'tienda', 'e-commerce', 'idea'];
+  const words2 = ['tus ideas', 'tus productos', 'tu arte', 'tu música', 'tus servicios', 'tu marca'];
+
+  function makeRotator(containerSel, list, interval = 1600){
+    const container = document.querySelector(containerSel);
+    if(!container) return;
+
+    const span = container.querySelector('.word');
+    let i = 0;
+    span.textContent = list[i];
+
+    if(reduce || list.length < 2) return; // sin animación si el usuario lo prefiere
+
+    setInterval(() => {
+      // salir
+      span.classList.add('is-out');
+      setTimeout(() => {
+        // cambiar texto y entrar
+        i = (i + 1) % list.length;
+        span.textContent = list[i];
+        span.classList.remove('is-out');
+        span.classList.add('is-in');
+        // limpiar la clase de entrada después de un tick
+        setTimeout(() => span.classList.remove('is-in'), 120);
+      }, 220); // debe ser >= al CSS (.24s)
+    }, interval);
+  }
+
+  // Inicializar
+  makeRotator('.rotator',  words1, 1600);
+  makeRotator('.rotator2', words2, 1500);
+})();
+</script>
 
 </body>
 </html>

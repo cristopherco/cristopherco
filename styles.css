@@ -238,3 +238,45 @@ body {
   object-fit: contain;
   vertical-align: middle;
 }
+
+/* ===== HERO rotators ===== */
+.hero-line, .hero-sub{
+  font-size: 1.1rem;
+  margin: 1rem 0 0.75rem;
+}
+
+.hero-sub{
+  opacity: .9;
+}
+
+/* Contenedores para evitar “saltos” de ancho */
+.rotator, .rotator2{
+  display: inline-block;
+  position: relative;
+  min-width: 8ch;               /* reserva ancho básico */
+}
+
+/* Palabra animada */
+.rotator .word,
+.rotator2 .word{
+  display: inline-block;
+  transition: opacity .24s ease, transform .24s ease;
+  will-change: opacity, transform;
+}
+
+/* Estado de salida/entrada */
+.word.is-out{
+  opacity: 0;
+  transform: translateY(8px);
+}
+.word.is-in{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accesibilidad: si el usuario prefiere menos animación */
+@media (prefers-reduced-motion: reduce){
+  .rotator .word, .rotator2 .word{
+    transition: none;
+  }
+}
