@@ -283,11 +283,3 @@ body {
   }
 }
 
-.hero-line {
-  margin-bottom: 0.2rem; /* antes era 0.75rem — ahora más compacto */
-}
-
-.hero-sub {
-  margin-top: 0; /* acercamos el texto inferior */
-}
-
