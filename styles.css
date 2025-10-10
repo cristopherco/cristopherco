@@ -40,10 +40,12 @@ body {
   font-size: 3rem;
   letter-spacing: 2px;
 }
-.hero p {
-  margin: 1rem 0 2rem;
-  font-size: 1.1rem;
-}
+/* Quita margen global en el hero y lo controlamos por clase */
+.hero p { margin: 0; }
+
+/* Márgenes compactos y misma altura de línea */
+.hero-line { margin: 0 0 .25rem; line-height: 1.35; }
+.hero-sub  { margin: 0 0 1rem;  line-height: 1.35; }
 .btn {
   display: inline-block;
   background: #5353ec;
@@ -288,3 +290,4 @@ body {
 .hero-sub {
   margin-top: 0; /* acercamos el texto inferior */
 }
+
